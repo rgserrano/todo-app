@@ -17,17 +17,14 @@ router.get("/todos", (req, res, next) => {
 router.post("/todos", [
   body("title")
     .trim()
-    .isLength({ min: 3, max: 100 })
-  ,
+    .isLength({ min: 3, max: 100 }),
   body('day')
-    .custom(dateValidator)
-  ,
+    .custom(dateValidator),
   body('month')
-    .custom(dateValidator)
-  ,
+    .custom(dateValidator),
   body('year')
     .custom(dateValidator)
-],
+  ],
   (req, res, next) => {
     let errors = validationResult(req);
     if (!errors.isEmpty()) {

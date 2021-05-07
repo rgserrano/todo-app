@@ -1,0 +1,20 @@
+{
+  "name": "239-todos-backend-node",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "connect-loki": "^1.2.0",
+    "express": "~4.16.0",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.10.1",
+    "morgan": "^1.10.0",
+    "sqlite3": "^4.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.24.0",
+    "nodemon": "^2.0.7"
+  }
+}

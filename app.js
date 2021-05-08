@@ -9,6 +9,8 @@ const LokiStore = store(session);
 
 const Todo = require("./lib/todo");
 
+app.set('port', process.env.PORT || 3000);
+
 app.use(morgan("dev"));
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
@@ -24,7 +26,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   // figure out what to do with this
-  secret: "hella insecure amirite",
+  secret: "hella insecure",
   store: new LokiStore({}),
 }));
 app.use((req, res, next) => {
@@ -39,4 +41,4 @@ app.use((req, res, next) => {
 });
 app.use("/api", apiRouter);
 
-app.listen("3000", "localhost", () => console.log('listening on port 3000'));
+let server = app.listen(app.get('port'), () => console.log('listening on port ' + server.address().port));
